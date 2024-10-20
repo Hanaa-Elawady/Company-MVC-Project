@@ -1,0 +1,100 @@
+﻿@using Microsoft.AspNetCore.Identity
+@inject SignInManager<ApplicationUser> _signInManager;
+<!DOCTYPE html>
+<html lang="en" dir="ltr" data-theme="dark">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <meta name="description" content="Company"/>
+    <link rel="stylesheet" href="~/AuthFolders/css/all.min.css" />
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/TablesFolders/style.css" />
+    <link rel="stylesheet" href="~/AuthFolders/css/style.css" />
+</head>
+<body>
+
+
+    <span class="position-fixed bottom-0 end-0 m-3 z-3">
+        <i role="button" id="mode" class="fa-regular fa-sun fa-xl p-3"></i>
+    </span>
+
+    <nav class="navbar navbar-expand-lg nav-bg border-bottom border-dark">
+        <div class="container">
+            <h5 class="navbar-brand mb-0 text-uppercase">
+                <img src="~/AuthFolders/assets/Images/Logo.png" alt="logo photo" style="max-width: 70px" class="mx-0 px-0"/> Comapny
+            </h5>
+
+            <button class="navbar-toggler"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent"
+                    aria-controls="navbarSupportedContent"
+                    aria-expanded="false"
+                    aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse small navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mx-auto mb-2 mb-lg-0 menu">
+                    <li class="nav-item">
+                        <a asp-action="Index" asp-controller="Home"  role="button" class="nav-link text-uppercase">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a asp-action="Index" asp-controller="Department" role="button" class="nav-link text-uppercase">Departments</a>
+                    </li>
+                    <li class="nav-item">
+                        <a asp-action="Index" asp-controller="Employee" role="button" class="nav-link text-uppercase">Employees</a>
+                    </li>
+                    @{
+                        if(_signInManager.IsSignedIn(User) && User.IsInRole("Admin"))
+                        {
+                            <li class="nav-item">
+                                <a asp-action="Index" asp-controller="User" role="button" class="nav-link text-uppercase"> Users </a>
+                            </li>
+                            <li class="nav-item">
+                                <a asp-action="Index" asp-controller="Role" role="button" class="nav-link text-uppercase"> Roles </a>
+                            </li>
+                            
+                        }
+                      }
+                    
+
+                </ul>
+                        <ul class="navbar-nav mb-2 mb-lg-0">
+                            <li class="nav-item">
+                                <a asp-action="SignOut" asp-controller="Auth" role="button" class="nav-link logout-btn">LogOut</a>
+                            </li>
+                        </ul>
+            </div>
+        </div>
+    </nav>
+
+        @RenderBody()
+    <script>
+    function onSuccess(googleUser) {
+      console.log('Logged in as: ' + googleUser.getBasicProfile().getName());
+    }
+    function onFailure(error) {
+      console.log(error);
+    }
+    function renderButton() {
+      gapi.signin2.render('my-signin2', {
+        'scope': 'profile email',
+        'width': 240,
+        'height': 50,
+        'longtitle': true,
+        'theme': 'dark',
+        'onsuccess': onSuccess,
+        'onfailure': onFailure
+      });
+    }
+  </script>
+    <script src="~/TablesFolders/jquery.min.js"></script>
+    <script src="~/TablesFolders/popper.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/TablesFolders/main.js"></script>
+    <script src="~/AuthFolders/js/Company.js"></script>
+</body>
+</html>

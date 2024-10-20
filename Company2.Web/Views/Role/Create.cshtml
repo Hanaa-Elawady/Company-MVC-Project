@@ -1,0 +1,33 @@
+﻿@model RoleViewModel
+
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1 class="text-center">Add new Role</h1>
+
+<form asp-Action="Create" class="row g-3 my-4 w-50 text-center mx-auto">
+
+    <div class="col-8 mx-auto">
+        <div class="form-data">
+            <input type="text" asp-for="Name" class="form-control" placeholder="Name" />
+            <span asp-validation-for="Name"></span>
+        </div>
+    </div>
+
+
+    <div class="col-8 mx-auto">
+        <button type="submit" class="btn main-btn">Create</button>
+    </div>
+</form>
+
+<footer>
+    <p class="text-center small">
+        <a asp-action="Index" asp-controller="Role" class="link-secondary text-decoration-none" role="button">
+            Back To List
+            <i class="fa-solid fa-angle-right"></i>
+        </a>
+    </p>
+</footer>
+

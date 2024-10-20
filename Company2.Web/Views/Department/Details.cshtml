@@ -1,0 +1,30 @@
+﻿@model DepartmentDto
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1 class="text-center">Department Details</h1>
+
+<form asp-Action="Details" class="row g-3 my-4 w-50 text-center mx-auto">
+
+    <div class="col-8 mx-auto">
+        <div class="form-data" >
+            <input type="text" asp-for="Name" class="form-control" placeholder="Name" disabled/>
+            <span asp-validation-for="Name"></span>
+        </div>
+    </div>
+
+    <div class="col-8 mx-auto">
+        <div class="form-data">
+            <input asp-for="Code" type="text" class="form-control" placeholder="Code" disabled/>
+            <span asp-validation-for="Code"></span>
+        </div>
+    </div>
+
+    <div class="col-8 mx-auto">
+        <a asp-action="Index" asp-controller="Department" class="btn main-btn">Back To List</a>
+    </div>
+</form>
+
+

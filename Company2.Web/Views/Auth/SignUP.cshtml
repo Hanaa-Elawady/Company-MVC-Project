@@ -1,0 +1,65 @@
+﻿@model SignUpModelView
+@{
+    ViewData["Title"] = "SignUP";
+    Layout = "~/Views/Shared/_AuthLayout.cshtml";
+}
+
+
+<h1 class="text-center">Register to Company</h1>
+
+<form asp-Action="SignUp" class="row g-3 my-4">
+    <div class="col-md-6">
+        <div class="form-data">
+            <input asp-for="FirstName" type="text" class="form-control" placeholder="First Name" />
+            <span asp-validation-for="FirstName"></span>
+        </div>
+    </div>
+
+    <div class="col-md-6">
+        <div class="form-data">
+            <input type="text" asp-for="LastName" class="form-control" placeholder="Last Name" />
+            <span asp-validation-for="LastName"></span>
+        </div>
+    </div>
+
+    <div class="col-12">
+        <div class="form-data">
+            <input asp-for="Email" type="email" class="form-control" placeholder="Email Address" />
+            <span asp-validation-for="Email"></span>
+        </div>
+    </div>
+
+    <div class="col-12">
+        <div class="form-data">
+            <input asp-for="Password" type="password" class="form-control" placeholder="Password" />
+            <span asp-validation-for="Password"></span>
+        </div>
+    </div>
+    <div class="col-12">
+        <div class="form-data">
+            <input asp-for="ConfirmPassword" type="password" class="form-control" placeholder="Confirm Password" />
+            <span asp-validation-for="ConfirmPassword"></span>
+        </div>
+    </div>
+    <div class="col-12">
+        <div class="form-data">
+            <input asp-for="IsAgree" type="checkbox" />
+            <label asp-for="IsAgree" class="label-agree-term"><span><span></span></span>I agree all statements in Terms of service</label>
+        </div>
+    </div>
+
+    <div class="col-12">
+        <button type="submit" class="btn w-100 main-btn">Register</button>
+    </div>
+</form>
+
+<footer>
+    <p class="text-center small">
+        Already a member?
+        <a asp-action="LogIn" asp-controller="Auth" class="link-secondary text-decoration-none" role="button">
+            LogIn 
+            <i class="fa-solid fa-angle-right"></i>
+        </a>
+    </p>
+</footer>
+

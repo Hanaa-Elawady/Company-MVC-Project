@@ -1,0 +1,85 @@
+﻿@model EmployeeDto
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1 class="text-center">Employee Data</h1>
+
+<form asp-Action="Details" class="row g-3 my-4 w-50 text-center mx-auto" enctype="multipart/form-data">
+
+    <div class="col-8 mx-auto">
+        <div class="form-data">
+            <input disabled type="text" asp-for="Name" class="form-control" placeholder="Name" />
+            <span asp-validation-for="Name"></span>
+        </div>
+    </div>
+
+    <div class="col-8 mx-auto">
+        <div class="form-data">
+            <input disabled asp-for="Age" type="number" class="form-control" placeholder="Age" />
+            <span asp-validation-for="Age"></span>
+        </div>
+    </div>
+    
+    <div class="col-8 mx-auto">
+        <div class="form-data">
+            <input disabled asp-for="Address" type="text" class="form-control" placeholder="Adress" />
+            <span asp-validation-for="Address"></span>
+        </div>
+    </div>
+    
+    <div class="col-8 mx-auto">
+        <div class="form-data">
+            <input disabled asp-for="Salary" type="number" class="form-control" placeholder="Salary" />
+            <span asp-validation-for="Salary"></span>
+        </div>
+    </div>
+    
+    <div class="col-8 mx-auto">
+        <div class="form-data">
+            <input disabled asp-for="Email" type="email" class="form-control" placeholder="Email" />
+            <span asp-validation-for="Email"></span>
+        </div>
+    </div>
+    
+    
+    <div class="col-8 mx-auto">
+        <div class="form-data">
+            <input disabled asp-for="PhoneNumber" type="tel" class="form-control" placeholder="Phone Number" />
+            <span asp-validation-for="PhoneNumber"></span>
+        </div>
+    </div>
+    
+    
+    <div class="col-8 mx-auto">
+        <div class="form-data">
+            <input disabled asp-for="HiringDate" type="date" class="form-control" placeholder="Hiring date" />
+            <span asp-validation-for="HiringDate"></span>
+        </div>
+    </div>
+    
+    <div class="col-8 mx-auto">
+        <div class="form-data">
+            <input disabled asp-for="Image" type="file" class="form-control" placeholder="Upload file " />
+            <span asp-validation-for="Image"></span>
+        </div>
+    </div>
+    
+    <div class="col-8 mx-auto">
+        <div class="form-data">
+            <input disabled asp-for="DepartmentId" type="text" class="form-control" placeholder="Department Id" />
+            <span asp-validation-for="Department"></span>
+        </div>
+    </div>
+    
+</form>
+
+<footer>
+    <p class="text-center small">
+        <a asp-action="Index" asp-controller="Department" class="link-secondary text-decoration-none" role="button">
+            Back To List
+            <i class="fa-solid fa-angle-right"></i>
+        </a>
+    </p>
+</footer>

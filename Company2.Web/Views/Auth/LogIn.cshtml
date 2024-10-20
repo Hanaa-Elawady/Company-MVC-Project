@@ -1,0 +1,54 @@
+﻿@model LogInViewModel
+@{
+    ViewData["Title"] = "LogIn";
+    Layout = "~/Views/Shared/_AuthLayout.cshtml";
+}
+
+     <h1 class="text-center">LogIn to Company</h1>
+
+<form asp-Action="LogIn" class="row g-3 my-4">
+
+    <div class="col-12">
+        <div class="form-data">
+            <input asp-for="Email" type="email" class="form-control" placeholder="Email Address" />
+            <span asp-validation-for="Email"></span>
+        </div>
+    </div>
+
+    <div class="col-12">
+        <div class="form-data">
+            <input asp-for="Password" type="password" class="form-control" placeholder="Password" />
+            <span asp-validation-for="Password"></span>
+        </div>
+    </div>
+
+    <div asp-validation-summary="All"></div>
+
+
+    <div class="col-12">
+        <button type="submit" class="btn w-100 main-btn">LogIn</button>
+    </div>
+
+
+    <p class="text-center small">
+        Forgot Your Password ?
+        <a asp-action="ForgetPassword" asp-controller="Auth" class="link-secondary text-decoration-none" role="button">
+            Reset Password <i class="fa-solid fa-angle-right"></i>
+        </a>
+    </p>
+</form>
+    <p class="text-center small main-btn w-25 mx-auto p-3 text-white">
+        <a asp-action="googleLogin" asp-controller="Auth" class="link-secondary text-decoration-none" role="button">
+            <i class="fa-brands fa-google"></i> Sign In with Google
+        </a>
+    </p>
+
+<footer>
+    <p class="text-center small">
+        Not a member yet?
+        <a asp-action="SignUP" asp-controller="Auth" class="link-secondary text-decoration-none" role="button">
+            Create Account <i class="fa-solid fa-angle-right"></i>
+        </a>
+    </p>
+</footer>
+

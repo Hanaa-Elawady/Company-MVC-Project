@@ -1,0 +1,44 @@
+﻿@model ApplicationUser
+
+@{
+    ViewData["Title"] = "Update";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+<h1 class="text-center">Update User Data</h1>
+
+<form asp-Action="Update" class="row g-3 my-4 w-50 mx-auto">
+    <div class="col-12">
+        <div class="form-data">
+            <input asp-for="UserName" type="text" class="form-control" placeholder="User Name" />
+            <span asp-validation-for="UserName"></span>
+        </div>
+    </div>
+
+    <div class="col-12">
+        <div class="form-data">
+            <input asp-for="Email" type="email" class="form-control" placeholder="Email Address" />
+            <span asp-validation-for="Email"></span>
+        </div>
+    </div>
+
+    <div class="col-12">
+        <button type="submit" class="btn w-100 main-btn">Update</button>
+    </div>
+
+</form>
+
+<footer>
+    <p class="text-center small">
+        <a asp-action="Index" asp-controller="User" class="link-secondary text-decoration-none" role="button">
+            Back To Users
+            <i class="fa-solid fa-angle-right"></i>
+        </a>
+    </p>
+
+</footer>
+
+
+
