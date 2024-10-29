@@ -1,7 +1,3 @@
-Here's a draft for a README file for the MVC Company project:
-
----
-
 # MVC for Companies
 
 ## Overview
